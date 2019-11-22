@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Tasoug</string>
+    <string name="ed_email">البريد الالكتروني</string>
+    <string name="ed_pass">كلمة المرور</string>
+    <string name="login_btn">تسجيل الدخول</string>
+    <string name="mouchtarawat">مشتريات</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_montagat">منتجات</string>
+    <string name="forniseur">موردين</string>
+    <string name="btn_client">عملاء</string>
+    <string name="masroufat">مصروفات</string>
+    <string name="soundok">صندوق</string>
+    <string name="statistique">إحصائيات</string>
+    <string name="mabiat">مبيعات</string>
+    <string name="option">إعدادات</string>
+    <string name="orders">طلبات</string>
+    <string name="home">الرئيسية</string>
+    <string name="share_client">مشاركة تطبيق العملاء</string>
+    <string name="share_fornis">مشاركة تطبيق الموردين</string>
+    <string name="service">خدمة العملاء</string>
+    <string name="logout">تسجيل الخروح</string>
+    <string name="order_nb">رقم الطلب</string>
+    <string name="active">تفعيل الحساب</string>
+    <string name="comerce_name">الإسم التجاري</string>
+    <string name="scour">الرصيد الحالي</string>
+    <string name="filterBy">فلترة حسب</string>
+    <string name="date">التاريخ</string>
+    <string name="nb">الرقم</string>
+    <string name="prodect">المنتج</string>
+    <string name="count">الكمية</string>
+    <string name="price">المبلغ</string>
+    <string name="count1">مجموع المشتريات المكتملة</string>
+    <string name="rs">ر.س</string>
+    <string name="order">طلب</string>
+    <string name="count2">مجموع المشتريات المفعل</string>
+    <string name="count3">مجموع المشتريات المعلقة</string>
+    <string name="count4">التكلفة الإجمالية</string>
+
+    <array name="mostalamat_type">
+        <item>الكل</item>
+        <item>طول الانتظار</item>
+        <item>المستلمة</item>
+        <item>المباعة</item>
+    </array>
+</resources>

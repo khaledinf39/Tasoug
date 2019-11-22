@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:background="@color/bk_white"
+        android:outlineSpotShadowColor="@color/bk_grey"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            >
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:id="@+id/img"
+              android:src="@drawable/man_2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/img"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="عبد الرحيم"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/name"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:textColor="@color/text_balck"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/img"
+                android:layout_marginRight="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                android:text="002136692031324"
+                android:id="@+id/date"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_grey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+
+                android:layout_marginRight="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                android:text="@string/comerce_name"
+                android:id="@+id/t3"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/t3"
+
+                android:layout_marginRight="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                android:text=": أم محمد"
+                android:id="@+id/comerce_name"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_grey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+
+                android:layout_marginRight="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/t3"
+                android:text="@string/scour"
+                android:id="@+id/t4"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_grey"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/t4"
+
+                android:layout_marginRight="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/t3"
+                android:text=" 0.0 ر.س"
+                android:id="@+id/scour"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_grey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginRight="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/active"
+                android:id="@+id/t2"
+                android:fontFamily="@font/saudi"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_grey"/>
+<Switch
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+  app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/t2"
+    android:checked="false"
+    android:shadowColor="@color/shadoo"
+
+    android:layout_marginRight="10dp"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+              android:src="@drawable/ic_call"
+                android:layout_marginTop="5dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

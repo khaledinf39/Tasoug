@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    >
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    android:background="@color/bk_white"
+    android:outlineSpotShadowColor="@color/bk_grey"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/order_nb"
+            android:id="@+id/t1"
+            android:fontFamily="@font/saudi"
+            android:textSize="16sp"
+            android:textColor="@color/text_grey"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/t1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text=" : "
+            android:id="@+id/t2"
+            android:fontFamily="@font/saudi"
+            android:textSize="16sp"
+            android:textColor="@color/text_grey"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/t2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="0001"
+            android:id="@+id/order_nb"
+            android:fontFamily="@font/saudi"
+            android:textSize="16sp"
+            android:textColor="@color/text_grey"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/t1"
+            android:text="10/11/2019"
+            android:id="@+id/date"
+            android:fontFamily="@font/saudi"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/t1"
+            android:text="60.00 ر.س"
+            android:id="@+id/price"
+            android:fontFamily="@font/saudi"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_green"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
