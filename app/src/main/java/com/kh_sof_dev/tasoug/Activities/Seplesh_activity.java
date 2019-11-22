@@ -1,4 +1,4 @@
-package com.kh_sof_dev.tasoug;
+package com.kh_sof_dev.tasoug.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.kh_sof_dev.tasoug.R;
 
 public class Seplesh_activity extends AppCompatActivity {
 

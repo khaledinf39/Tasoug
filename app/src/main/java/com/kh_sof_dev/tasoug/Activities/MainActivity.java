@@ -1,8 +1,10 @@
-package com.kh_sof_dev.tasoug;
+package com.kh_sof_dev.tasoug.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.kh_sof_dev.tasoug.R;
 
 public class MainActivity extends AppCompatActivity {
 
