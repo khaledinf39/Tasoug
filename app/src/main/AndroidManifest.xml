@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Order_details"></activity>
+        <activity android:name=".Activities.Fornisieur_details"></activity>
+        <activity android:name=".Activities.Client_details" />
+        <activity android:name=".Activities.Order_details" />
         <activity android:name=".Activities.Login_activity" />
         <activity android:name=".Activities.Seplesh_activity">
             <intent-filter>

@@ -52,4 +52,10 @@
     <string name="prodect_list">المنتجات</string>
     <string name="contine">إتمام الطلب</string>
     <string name="cancel">إلغاء الطلب</string>
+    <string name="date_ins">تاريخ التسجيل</string>
+    <string name="total">المجموع</string>
+    <string name="rest">المتبقي</string>
+    <string name="bayed">المدفوغ</string>
+    <string name="bayToForn">الدفع للمورد</string>
+    <string name="total2">الإجمالي</string>
 </resources>
