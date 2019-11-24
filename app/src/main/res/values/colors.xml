@@ -6,6 +6,7 @@
     <color name="text_grey">#808080</color>
     <color name="bord_black">#444242</color>
     <color name="bk_green">#2F920C</color>
+    <color name="bk_green_white">#882F920C</color>
     <color name="bk_white">#FFFFFF</color>
     <color name="text_white">#FFFFFF</color>
     <color name="shadoo">#CFCFCF</color>
@@ -14,6 +15,7 @@
     <color name="text_balck">#110C0C</color>
     <color name="text_red">#F50A0A</color>
     <color name="bk_red">#F50A0A</color>
+    <color name="bk_red_white">#A4F50A0A</color>
     <color name="text_blue">#194BF1</color>
     <color name="bk_blue">#194BF1</color>
     <color name="bk_white_blue">#4BA2E5</color>

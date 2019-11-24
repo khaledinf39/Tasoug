@@ -40,4 +40,7 @@ dependencies {
     implementation 'com.karumi:dexter:5.0.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    // for new Drawer
+    implementation 'com.yarolegovich:sliding-root-nav:1.1.0'
+
 }

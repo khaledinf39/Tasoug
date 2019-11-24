@@ -58,4 +58,8 @@
     <string name="bayed">المدفوغ</string>
     <string name="bayToForn">الدفع للمورد</string>
     <string name="total2">الإجمالي</string>
+    <string name="basbousa">بسبوسة أم محمد</string>
+    <string name="count_exis">الكمية المتواجدة</string>
+    <string name="count_bayed">الكمية المباعة</string>
+    <string name="categorie">بسبوسة</string>
 </resources>
