@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Product_details"></activity>
+        <activity android:name=".Activities.Expenses"></activity>
+        <activity android:name=".Activities.Electronique_bayment" />
+        <activity android:name=".Activities.Box" />
+        <activity android:name=".Activities.Term_and_conditions" />
+        <activity android:name=".Activities.Bonod_expenses" />
+        <activity android:name=".Activities.Store_info" />
+        <activity android:name=".Activities.Add_product" />
+        <activity android:name=".Activities.Product_details" />
         <activity android:name=".Activities.Fornisieur_details" />
         <activity android:name=".Activities.Client_details" />
         <activity android:name=".Activities.Order_details" />
