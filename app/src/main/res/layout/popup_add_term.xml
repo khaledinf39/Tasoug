@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/bk_white_blue"
+        android:padding="10dp"
+        android:id="@+id/header">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_close_white_icon"
+            android:id="@+id/back_btn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="5dp"/>
+        <TextView
+            android:fontFamily="@font/saudi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="@color/text_white"
+            android:text="@string/add_bande"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:fontFamily="@font/saudi"
+        android:layout_width="match_parent"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/text_balck"
+        android:hint="@string/bande_titel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <EditText
+        android:fontFamily="@font/saudi"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bk_edite_bay"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/text_white"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+    <TextView
+        android:fontFamily="@font/saudi"
+        android:layout_width="match_parent"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/text_balck"
+        android:hint="@string/bande_body"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <EditText
+        android:fontFamily="@font/saudi"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bk_edite_bay"
+        android:layout_height="200dp"
+        android:textSize="16sp"
+        android:textColor="@color/text_white"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+    <TextView
+        android:fontFamily="@font/saudi"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="@color/text_white_blue"
+        android:text="@string/save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp"
+        />
+</LinearLayout>

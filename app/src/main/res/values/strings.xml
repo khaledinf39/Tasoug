@@ -90,4 +90,10 @@
     <string name="terment_today">غلق الحساب لليوم</string>
     <string name="account">حساب الصرف</string>
     <string name="bayan">البيان</string>
+    <string name="add_bande">إضافة بند جديد</string>
+    <string name="bande">البند</string>
+    <string name="bande_titel">عنوان البند</string>
+    <string name="bande_body">نص البند</string>
+    <string name="unite">الوحد</string>
+    <string name="add_price">إضافة ثمن جديد</string>
 </resources>
