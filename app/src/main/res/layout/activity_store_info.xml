@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Store_info"
+    tools:context=".Views.Activities.Store_info"
     android:orientation="vertical"
     android:background="@color/bk_white">
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Product_details">
+    tools:context=".Views.Activities.Product_details">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,11 +103,7 @@
             android:layout_width="match_parent"
 
             android:layout_height="200dp"
-            app:auto_cycle="true"
-            app:indicator_visibility="visible"
-            app:pager_animation="Accordion"
-
-            app:pager_animation_span="1100">
+       >
 
 
         </com.daimajia.slider.library.SliderLayout>

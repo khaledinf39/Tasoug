@@ -7,28 +7,28 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Expenses"></activity>
-        <activity android:name=".Activities.Electronique_bayment" />
-        <activity android:name=".Activities.Box" />
-        <activity android:name=".Activities.Term_and_conditions" />
-        <activity android:name=".Activities.Bonod_expenses" />
-        <activity android:name=".Activities.Store_info" />
-        <activity android:name=".Activities.Add_product" />
-        <activity android:name=".Activities.Product_details" />
-        <activity android:name=".Activities.Fornisieur_details" />
-        <activity android:name=".Activities.Client_details" />
-        <activity android:name=".Activities.Order_details" />
-        <activity android:name=".Activities.Login_activity" />
-        <activity android:name=".Activities.Seplesh_activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Views.Activities.Expenses"></activity>
+        <activity android:name=".Views.Activities.Electronique_bayment" />
+        <activity android:name=".Views.Activities.Box" />
+        <activity android:name=".Views.Activities.Term_and_conditions" />
+        <activity android:name=".Views.Activities.Bonod_expenses" />
+        <activity android:name=".Views.Activities.Store_info" />
+        <activity android:name=".Views.Activities.Add_product" />
+        <activity android:name=".Views.Activities.Product_details" />
+        <activity android:name=".Views.Activities.Fornisieur_details" />
+        <activity android:name=".Views.Activities.Client_details" />
+        <activity android:name=".Views.Activities.Order_details" />
+        <activity android:name=".Views.Activities.Login_activity" />
+        <activity android:name=".Views.Activities.Seplesh_activity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Views.Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

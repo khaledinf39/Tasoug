@@ -51,7 +51,7 @@
     <string name="address">العنوان</string>
     <string name="prodect_list">المنتجات</string>
     <string name="contine">إتمام الطلب</string>
-    <string name="cancel">إلغاء الطلب</string>
+    <string name="cancel">إلغاء </string>
     <string name="date_ins">تاريخ التسجيل</string>
     <string name="total">المجموع</string>
     <string name="rest">المتبقي</string>
@@ -96,4 +96,5 @@
     <string name="bande_body">نص البند</string>
     <string name="unite">الوحد</string>
     <string name="add_price">إضافة ثمن جديد</string>
+    <string name="new_prod">منتج جديد</string>
 </resources>

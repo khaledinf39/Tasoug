@@ -6,17 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.Order">
-    <android.support.design.widget.TabLayout
+    tools:context=".Views.Fragments.Order">
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/tab"
-        style="@style/Tablayout_order"
+
         android:background="#A4000000"/>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpage"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"

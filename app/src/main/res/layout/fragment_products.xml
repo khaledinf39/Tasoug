@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.Products">
+    tools:context=".Views.Fragments.Products">
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fab_qr_code"
+        android:id="@+id/fab_qr_code_bay"
         android:backgroundTint="@color/bk_red_white"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,11 +38,11 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fab_qr_code2"
+        android:id="@+id/fab_qr_code_sale"
         android:backgroundTint="@color/bk_green_white"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/fab_qr_code"
+        app:layout_constraintLeft_toRightOf="@+id/fab_qr_code_bay"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="10dp"
         android:src="@drawable/ic_qrcode"/>
@@ -53,7 +53,7 @@
         android:backgroundTint="@color/bk_white"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/fab_qr_code2"
+        app:layout_constraintLeft_toRightOf="@+id/fab_qr_code_sale"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="10dp"
         android:src="@drawable/ic_plase"/>

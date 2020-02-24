@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Client_details">
+    tools:context=".Views.Activities.Client_details">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/info"
@@ -142,7 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/info"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/tab"
-        style="@style/Tablayout_order"
+
         android:background="#A4000000"/>
 
     <android.support.v4.view.ViewPager

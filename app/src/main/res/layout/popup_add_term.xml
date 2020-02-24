@@ -48,6 +48,7 @@
         app:layout_constraintRight_toRightOf="parent"
         />
     <EditText
+        android:id="@+id/title"
         android:fontFamily="@font/saudi"
         android:layout_width="match_parent"
         android:padding="10dp"
@@ -90,7 +91,7 @@
         android:layout_height="200dp"
         android:textSize="16sp"
         android:textColor="@color/text_white"
-
+android:id="@+id/body"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />

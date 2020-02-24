@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Add_product">
+    tools:context=".Views.Activities.Add_product">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:textColor="@color/text_balck"
-            android:text="@string/basbousa"
+            android:text="@string/new_prod"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
@@ -40,7 +40,7 @@
         android:background="@color/bk_grey"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -66,7 +66,7 @@
             android:gravity="center"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="60.00 ر.س"
+            android:text="00.00 ر.س"
             android:id="@+id/price"
             android:background="@color/bk_red"
             android:fontFamily="@font/saudi"
@@ -109,7 +109,7 @@ android:gravity="top"
         android:layout_marginLeft="10dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t3"
-        android:text="@string/description"
+        android:hint="@string/description"
         android:id="@+id/description"
         android:inputType="textMultiLine"
         android:background="@drawable/bk_edite_bay"
@@ -191,14 +191,14 @@ android:gravity="top"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/t3"
-            android:text="@string/save"
-            android:id="@+id/save_btn"
+            android:text="@string/cancel"
+            android:id="@+id/cancel"
 
-            android:background="@drawable/bk_edite_bay"
+            android:background="@drawable/bk_btn_cancel"
             android:fontFamily="@font/saudi"
             android:textSize="16sp"
 
@@ -208,17 +208,18 @@ android:gravity="top"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/t3"
-            android:text="@string/cancel"
-            android:id="@+id/cancel"
+            android:text="@string/save"
+            android:id="@+id/save_btn"
 
-            android:background="@drawable/bk_edite_bay"
+            android:background="@drawable/bk_btn_save"
             android:fontFamily="@font/saudi"
             android:textSize="16sp"
 
-            android:textColor="@color/text_grey"/>
+            android:textColor="@color/text_white"/>
+
     </LinearLayout>
 </LinearLayout>

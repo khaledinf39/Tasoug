@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.mostalamat">
+    tools:context=".Views.Fragments.mostalamat">
 
 <ScrollView
     android:layout_width="match_parent"
@@ -152,6 +152,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="300dp"
                     android:id="@+id/RV"
                     tools:listitem="@layout/row_mostalamat"
                     android:orientation="vertical"
