@@ -39,8 +39,15 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.3.2'
     implementation 'com.karumi:dexter:5.0.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-
+    implementation 'pub.devrel:easypermissions:0.2.1'
     // for new Drawer
     implementation 'com.yarolegovich:sliding-root-nav:1.1.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
+
+
+    ///scane qrcode
+    implementation 'com.github.blikoon:QRCodeScanner:0.1.2'
+    /////////////////////////
 
 }

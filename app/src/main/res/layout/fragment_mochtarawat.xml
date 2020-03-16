@@ -197,6 +197,7 @@ android:minHeight="300dp"
                    android:orientation="horizontal"
                    android:weightSum="2">
                    <LinearLayout
+                       android:id="@+id/lay_rest"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="match_parent"
@@ -247,8 +248,8 @@ android:minHeight="300dp"
                                />
                            <TextView
                                android:layout_width="0dp"
-                               android:layout_weight="1"
-
+                               android:layout_weight="3"
+                               android:id="@+id/rest"
                                android:layout_height="wrap_content"
                                android:text="00"
                                android:fontFamily="@font/saudi"
@@ -312,8 +313,8 @@ android:minHeight="300dp"
                                />
                            <TextView
                                android:layout_width="0dp"
-                               android:layout_weight="1"
-
+                               android:layout_weight="3"
+android:id="@+id/total"
                                android:layout_height="wrap_content"
                                android:text="00"
                                android:fontFamily="@font/saudi"
@@ -333,28 +334,31 @@ android:minHeight="300dp"
                    android:orientation="vertical"
                    app:layout_constraintTop_toBottomOf="@+id/bay">
                    <EditText
+                       android:id="@+id/tcheck_out"
                        android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
+                       android:layout_height="40dp"
                        android:background="@drawable/bk_edite_bay"
                        android:hint="@string/bayed"
                        android:textSize="16dp"
+                       android:inputType="number"
                        android:textColor="@color/text_grey"
                        android:fontFamily="@font/saudi"
                        android:layout_marginTop="5dp"
                        android:layout_marginLeft="5dp"
                        android:layout_marginRight="5dp"
                        android:padding="5dp"/>
+
                    <Button
+                       android:id="@+id/contine"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:id="@+id/bay_btn"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginBottom="0dp"
+                       android:background="@drawable/bk_btn_bay"
+                       android:fontFamily="@font/saudi"
                        android:text="@string/contine"
                        android:textColor="@color/text_white"
-                       android:background="@drawable/bk_btn_bay"
-                       android:layout_marginTop="10dp"
-                       android:fontFamily="@font/saudi"
-                       android:textSize="16sp"
-                       android:layout_marginBottom="0dp"/>
+                       android:textSize="16sp" />
 
                </LinearLayout>
            </LinearLayout>

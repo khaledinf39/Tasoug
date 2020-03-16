@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
     <LinearLayout
         app:layout_constraintTop_toTopOf="parent"
 
@@ -60,7 +61,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/saudi"
                 android:text="02"
-                android:id="@+id/count"
+                android:id="@+id/quantity"
                 android:textColor="@color/text_grey"
                 android:textSize="16sp"
                 app:layout_constraintRight_toRightOf="parent"
@@ -115,7 +116,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/saudi"
                 android:text="@string/prodect"
-                android:id="@+id/prodect"
+                android:id="@+id/product"
                 android:textColor="@color/text_grey"
                 android:textSize="16sp"
                 app:layout_constraintRight_toRightOf="parent"

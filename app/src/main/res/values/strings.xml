@@ -97,4 +97,14 @@
     <string name="unite">الوحد</string>
     <string name="add_price">إضافة ثمن جديد</string>
     <string name="new_prod">منتج جديد</string>
+    <string name="ed_email_or_phone">رقم الهاتف او البريد الإلكتروني</string>
+    <string name="categories">الأصناف</string>
+    <string name="noItem">لا يوجد</string>
+    <string name="add_categorie">إضافة صنف جديد</string>
+    <string name="quantity"> الكمية المطلوبة </string>
+    <string name="client_in_store">زبون من المحل</string>
+    <string name="noAddress">لا يوجد عنوان</string>
+    <string name="mostalamat">مستلمات</string>
+    <string name="accepte">قبول</string>
+    <string name="del">رفض</string>
 </resources>

@@ -11,7 +11,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kh_sof_dev.tasoug.Controule.Info.Store_info;
-import com.kh_sof_dev.tasoug.Controule.Info.User_info;
+import com.kh_sof_dev.tasoug.Controule.Info.Store_info;
+import com.kh_sof_dev.tasoug.Model.Classes.Product;
+import com.kh_sof_dev.tasoug.Model.Classes.Supplier;
 import com.kh_sof_dev.tasoug.Model.Classes.User;
 
 import org.json.JSONException;
@@ -21,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Users {
-    interface Get_users{
+    public interface Get_users{
         void onstart();
         void onSuccess(User user);
         void  onField(String msg);
@@ -44,11 +46,7 @@ public class Users {
                     public void onResponse(JSONObject response) {
                         // display response
                         Log.d("Response", response.toString());
-                        try {
-                            listener.onSuccess(new User(response.getJSONObject("user")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        listener.onSuccess(new User(response));
 
                     }
                 },
@@ -56,7 +54,7 @@ public class Users {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                    Log.d("Error.Response", error.getMessage());
+//                    Log.d("Error.Response", error.getMessage());
                     listener.onField(error.getMessage());
                     }
                 }
@@ -64,8 +62,8 @@ public class Users {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
-                return super.getHeaders();
+                Headers.put("token", Store_info.token);
+                return Headers;
             }
         };
 
@@ -110,7 +108,7 @@ public class Users {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token",User_info.token);
+                Headers.put("token",Store_info.token);
                 return super.getHeaders();
             }
         };
@@ -119,4 +117,97 @@ public class Users {
         queue.add(getRequest);
         queue.getCache().clear();
     }
+    public void Put_statusOFuser(final Context mcontext, final User user , final Get_users listener) {
+        listener.onstart();
+        String url= Store_info.api+"users/"+user.getID()+"/"+user.getStatus();
+        RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
+
+        if (queue==null){
+            queue = Volley.newRequestQueue(mcontext);
+        }
+
+// Request a json response from the provided URL
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.PUT, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        Log.d("Response",jsonObject.toString());
+                        listener.onSuccess(new User(jsonObject));
+                    }
+                }, new Response.ErrorListener (){
+
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                listener.onField(volleyError.toString());
+            }
+        }
+        ){
+            @Override
+            public Map<String, String> getHeaders()  {
+                Map<String, String>  Headers = new HashMap<String, String>();
+                Headers.put("token",Store_info.token);
+                Headers.put("Accept","application/json");
+                Headers.put("Content-Type","application/json");
+                return Headers;
+            }
+        };
+
+
+// Add the request to the RequestQueue.
+        queue.getCache().initialize();
+        queue.add(jsonObjectRequest);
+        queue.getCache().clear();
+        // prepare the Request
+
+    }
+    public void Put_statusOFsupplier(final Context mcontext, final Supplier supplier, final Get_users listener) {
+        listener.onstart();
+        String url= Store_info.api+"suppliers/"+supplier.getID()+"/"+supplier.getStatus();
+        RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
+
+        if (queue==null){
+            queue = Volley.newRequestQueue(mcontext);
+        }
+
+// Request a json response from the provided URL
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.PUT, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        try {
+                            Log.d("Response",jsonObject.toString());
+                            listener.onSuccess(new User(jsonObject.getJSONObject("user")));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener (){
+
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                listener.onField(volleyError.toString());
+            }
+        }
+        ){
+            @Override
+            public Map<String, String> getHeaders()  {
+                Map<String, String>  Headers = new HashMap<String, String>();
+                Headers.put("token",Store_info.token);
+                Headers.put("Accept","application/json");
+                Headers.put("Content-Type","application/json");
+                return Headers;
+            }
+        };
+
+
+// Add the request to the RequestQueue.
+        queue.getCache().initialize();
+        queue.add(jsonObjectRequest);
+        queue.getCache().clear();
+        // prepare the Request
+
+    }
+
 }

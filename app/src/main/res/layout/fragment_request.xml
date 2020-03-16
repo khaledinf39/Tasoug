@@ -1,54 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
    >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progress"
-            android:layout_gravity="center"/>
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+          <ProgressBar
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/progress"
+              android:layout_gravity="center"/>
 
-        <TextView
-            android:layout_marginTop="20dp"
-
-
-            android:id="@+id/no_items"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="لا يوجد عناصر"
-            android:visibility="gone"
-            android:fontFamily="@font/tajawal_medium"
-            android:gravity="center"
-            android:layout_marginBottom="20dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-
-            android:id="@+id/RV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp"
-            />
-        <TextView
-            android:layout_marginTop="20dp"
+          <TextView
+              android:layout_marginTop="20dp"
 
 
-            android:id="@+id/see_more"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="عرض المزيد"
-            android:visibility="gone"
-            android:fontFamily="@font/tajawal_medium"
-            android:gravity="center"
-            android:layout_marginBottom="20dp"/>
-    </LinearLayout>
+              android:id="@+id/no_items"
+              android:layout_width="match_parent"
+              android:layout_height="30dp"
+              android:text="لا يوجد عناصر"
+              android:visibility="gone"
+              android:fontFamily="@font/tajawal_medium"
+              android:gravity="center"
+              android:layout_marginBottom="20dp"/>
 
-</FrameLayout>
+          <androidx.recyclerview.widget.RecyclerView
+
+              android:id="@+id/RV"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginTop="20dp"
+              android:layout_marginBottom="10dp"
+              android:paddingBottom="10dp"
+              android:layout_marginEnd="17dp"
+              android:layout_marginStart="17dp"
+              tools:listitem="@layout/row_order"
+
+              />
+          <TextView
+              android:layout_marginTop="20dp"
+
+
+              android:id="@+id/see_more"
+              android:layout_width="match_parent"
+              android:layout_height="30dp"
+              android:text="عرض المزيد"
+              android:visibility="gone"
+              android:fontFamily="@font/tajawal_medium"
+              android:gravity="center"
+              android:layout_marginBottom="20dp"/>
+      </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

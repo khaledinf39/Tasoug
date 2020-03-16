@@ -22,6 +22,9 @@ import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.kh_sof_dev.tasoug.R;
+import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Cancel_request;
+import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Compte_request;
+import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Current_request;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,6 +80,10 @@ public class Order extends Fragment {
         View view= inflater.inflate(R.layout.fragment_order, container, false);
 
         context = getContext();
+        Current_request.type="all";
+        Cancel_request.type="all";
+        Compte_request.type="all";
+
         /****************************definitions*****************************/
 
 

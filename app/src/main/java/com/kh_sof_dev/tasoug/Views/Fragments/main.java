@@ -27,7 +27,7 @@ public class main extends Fragment implements View.OnClickListener {
     }
 
 private Button btn_montagat,btn_mouch,btn_client,btn_forniseur,btn_soundok,btn_masroufat,btn_mabiat,btn_statistique
-        ,btn_orders,btn_option;
+        ,btn_orders,btn_option,btn_mostalamat;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ private Button btn_montagat,btn_mouch,btn_client,btn_forniseur,btn_soundok,btn_m
 
     private void initialize(View view) {
         btn_montagat=view.findViewById(R.id.btn_montagat);
+        btn_mostalamat=view.findViewById(R.id.btn_mostalamat);
         btn_mouch=view.findViewById(R.id.btn_mouch);
         btn_client=view.findViewById(R.id.btn_client);
         btn_forniseur=view.findViewById(R.id.btn_forniseur);
@@ -59,6 +60,7 @@ private Button btn_montagat,btn_mouch,btn_client,btn_forniseur,btn_soundok,btn_m
         btn_statistique.setOnClickListener(this);
         btn_orders.setOnClickListener(this);
         btn_option.setOnClickListener(this);
+        btn_mostalamat.setOnClickListener(this);
 
 
 
@@ -83,6 +85,12 @@ private Button btn_montagat,btn_mouch,btn_client,btn_forniseur,btn_soundok,btn_m
                mochtarawat mochtarawat=new mochtarawat();
                switchFGM(mochtarawat);
                MainActivity.titel.setText("المشتريات");
+
+               break;
+           case R.id.btn_mabiat:
+               mabiat mabiat=new mabiat();
+               switchFGM(mabiat);
+               MainActivity.titel.setText("المبيعات");
 
                break;
 
@@ -110,7 +118,7 @@ private Button btn_montagat,btn_mouch,btn_client,btn_forniseur,btn_soundok,btn_m
                startActivity(exp);
                break;
 
-           case R.id.btn_mabiat:
+           case R.id.btn_mostalamat:
                mostalamat mostalamat=new mostalamat();
                switchFGM(mostalamat);
                MainActivity.titel.setText("المستلمات");

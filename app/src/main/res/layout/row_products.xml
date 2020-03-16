@@ -85,7 +85,7 @@
                    app:layout_constraintRight_toLeftOf="@+id/t2"
                    app:layout_constraintTop_toBottomOf="@+id/name"
                    android:text="02"
-                   android:id="@+id/count_exist"
+                   android:id="@+id/quantity"
                    android:fontFamily="@font/saudi"
                    android:textSize="16sp"
                    android:textColor="@color/text_grey"/>
@@ -116,7 +116,7 @@
                    app:layout_constraintRight_toLeftOf="@+id/t4"
                    app:layout_constraintTop_toBottomOf="@+id/t2"
                    android:text="02"
-                   android:id="@+id/count_bayed"
+                   android:id="@+id/quantity_sale"
                    android:fontFamily="@font/saudi"
                    android:textSize="16sp"
                    android:textColor="@color/text_grey"/>

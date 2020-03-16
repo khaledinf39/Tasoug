@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:background="@color/text_white"
+    >
 
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+android:gravity="center"
         android:weightSum="5"
 
         >
         <TextView
+            android:singleLine="true"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -19,9 +23,11 @@
             android:id="@+id/price"
             android:fontFamily="@font/saudi"
             android:textColor="@color/text_grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:paddingRight="3dp"
             android:gravity="right"
+            android:ellipsize="end"
+            android:maxLines="1"
 
             />
         <View
@@ -29,14 +35,15 @@
             android:layout_height="wrap_content"
             android:background="@color/bk_grey"/>
         <TextView
+            android:singleLine="true"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="02"
-            android:id="@+id/count"
+            android:id="@+id/quantity"
             android:fontFamily="@font/saudi"
             android:textColor="@color/text_grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:paddingRight="3dp"
             android:gravity="right"
 
@@ -46,16 +53,19 @@
             android:layout_height="wrap_content"
             android:background="@color/bk_grey"/>
         <TextView
+            android:singleLine="true"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="بسبوسة"
-            android:id="@+id/prodect"
+            android:id="@+id/name"
             android:fontFamily="@font/saudi"
             android:textColor="@color/text_grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:paddingRight="3dp"
             android:gravity="right"
+            android:ellipsize="end"
+            android:maxLines="1"
 
             />
         <View
@@ -63,6 +73,7 @@
             android:layout_height="wrap_content"
             android:background="@color/bk_grey"/>
         <TextView
+            android:singleLine="true"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -70,26 +81,59 @@
             android:id="@+id/date"
             android:fontFamily="@font/saudi"
             android:textColor="@color/text_grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:paddingRight="3dp"
             android:gravity="right"
 
             />
         <View
             android:layout_width="1dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/bk_grey"/>
         <TextView
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:paddingRight="3dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="0001"
+            android:text="5e4ba3c03d7a6b26383b6b41"
             android:id="@+id/nb"
             android:gravity="right"
             android:fontFamily="@font/saudi"
             android:textColor="@color/text_grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             />
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bk_grey"/>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+       <Button
+           android:layout_width="100dp"
+           android:layout_height="40dp"
+           android:textSize="14dp"
+           android:textColor="@color/text_white_blue"
+           android:text="@string/accepte"
+           android:fontFamily="@font/saudi"
+           android:background="@drawable/bk_btn_accept"
+           android:id="@+id/accept"
+           android:layout_margin="5dp"/>
+       <Button
+           android:layout_width="100dp"
+           android:layout_height="40dp"
+           android:textSize="14dp"
+           android:textColor="@color/text_red"
+           android:text="@string/del"
+           android:fontFamily="@font/saudi"
+           android:background="@drawable/bk_btn_delete"
+           android:id="@+id/delete_btn"
+           android:layout_margin="5dp"/>
+   </LinearLayout>
 </LinearLayout>

@@ -1,9 +1,14 @@
 package com.kh_sof_dev.tasoug.Controule.Routes;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -11,7 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kh_sof_dev.tasoug.Controule.Info.Store_info;
-import com.kh_sof_dev.tasoug.Controule.Info.User_info;
+import com.kh_sof_dev.tasoug.Controule.Info.Store_info;
 import com.kh_sof_dev.tasoug.Model.Classes.Product;
 import com.kh_sof_dev.tasoug.Model.Classes.User;
 
@@ -23,7 +28,7 @@ import java.util.Map;
 
 public class Products {
 
-    interface Get_product{
+    public interface Get_product{
         void onstart();
         void onSuccess(Product product);
         void  onField(String msg);
@@ -66,7 +71,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
+                Headers.put("token", Store_info.token);
                 return super.getHeaders();
             }
         };
@@ -92,11 +97,7 @@ public class Products {
                     public void onResponse(JSONObject response) {
                         // display response
                         Log.d("Response", response.toString());
-                        try {
-                            listener.onSuccess(new Product(response.getJSONObject("products")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        listener.onSuccess(new Product(response));
 
                     }
                 },
@@ -104,7 +105,7 @@ public class Products {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.getMessage());
+                      //  Log.d("Error.Response", error.getMessage());
                         listener.onField(error.getMessage());
                     }
                 }
@@ -112,8 +113,8 @@ public class Products {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
-                return super.getHeaders();
+                Headers.put("token", Store_info.token);
+                return Headers;
             }
         };
 
@@ -139,11 +140,7 @@ public class Products {
                     public void onResponse(JSONObject response) {
                         // display response
                         Log.d("Response", response.toString());
-                        try {
-                            listener.onSuccess(new Product(response.getJSONObject("products")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        listener.onSuccess(new Product(response));
 
                     }
                 },
@@ -151,7 +148,7 @@ public class Products {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.getMessage());
+                       // Log.d("Error.Response", error.getMessage());
                         listener.onField(error.getMessage());
                     }
                 }
@@ -159,7 +156,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
+                Headers.put("token", Store_info.token);
                 return super.getHeaders();
             }
         };
@@ -205,7 +202,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
+                Headers.put("token", Store_info.token);
                 return super.getHeaders();
             }
         };
@@ -232,11 +229,7 @@ public class Products {
                     public void onResponse(JSONObject response) {
                         // display response
                         Log.d("Response", response.toString());
-                        try {
-                            listener.onSuccess(new Product(response.getJSONObject("products")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        listener.onSuccess(new Product(response));
 
                     }
                 },
@@ -244,7 +237,7 @@ public class Products {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.getMessage());
+                     //   Log.d("Error.Response", error.getMessage());
                         listener.onField(error.getMessage());
                     }
                 }
@@ -252,8 +245,8 @@ public class Products {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
-                return super.getHeaders();
+                Headers.put("token", Store_info.token);
+                return Headers;
             }
         };
 
@@ -298,7 +291,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token", User_info.token);
+                Headers.put("token", Store_info.token);
                 return super.getHeaders();
             }
         };
@@ -325,12 +318,8 @@ public class Products {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-                        try {
-                            Log.d("Response",jsonObject.toString());
-                            listener.onSuccess(new Product(jsonObject.getJSONObject("product")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        Log.d("Response",jsonObject.toString());
+                        listener.onSuccess(new Product(null));
                     }
                 }, new Response.ErrorListener (){
 
@@ -343,7 +332,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders()  {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token",User_info.token);
+                Headers.put("token",Store_info.token);
                 Headers.put("Accept","application/json");
                 Headers.put("Content-Type","application/json");
                 return Headers;
@@ -376,12 +365,8 @@ public class Products {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-                        try {
-                            Log.d("Response",jsonObject.toString());
-                            listener.onSuccess(new Product(jsonObject.getJSONObject("product")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        Log.d("Response",jsonObject.toString());
+                        listener.onSuccess(new Product(jsonObject));
                     }
                 }, new Response.ErrorListener (){
 
@@ -394,7 +379,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders()  {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token",User_info.token);
+                Headers.put("token",Store_info.token);
                 Headers.put("Accept","application/json");
                 Headers.put("Content-Type","application/json");
                 return Headers;
@@ -426,12 +411,8 @@ public class Products {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-                        try {
-                            Log.d("Response",jsonObject.toString());
-                            listener.onSuccess(new Product(jsonObject.getJSONObject("product")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        Log.d("Response",jsonObject.toString());
+                        listener.onSuccess(new Product(null));
                     }
                 }, new Response.ErrorListener (){
 
@@ -444,7 +425,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders()  {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token",User_info.token);
+                Headers.put("token",Store_info.token);
                 Headers.put("Accept","application/json");
                 Headers.put("Content-Type","application/json");
                 return Headers;
@@ -494,7 +475,7 @@ public class Products {
             @Override
             public Map<String, String> getHeaders()  {
                 Map<String, String>  Headers = new HashMap<String, String>();
-                Headers.put("token",User_info.token);
+                Headers.put("token",Store_info.token);
                 Headers.put("Accept","application/json");
                 Headers.put("Content-Type","application/json");
                 return Headers;
@@ -509,5 +490,7 @@ public class Products {
         // prepare the Request
 
     }
+
+
 
 }

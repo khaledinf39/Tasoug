@@ -10,10 +10,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
-        android:background="@color/bk_white"
-        android:outlineSpotShadowColor="@color/bk_grey"
+
+        android:id="@+id/card"
+        app:cardBackgroundColor="@color/bk_white"
+        android:outlineSpotShadowColor="@color/bk_green"
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,15 +24,16 @@
             android:padding="5dp"
             >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/categorie"
                 android:id="@+id/name"
                 android:fontFamily="@font/saudi"
                 android:textSize="14sp"
-                android:textColor="@color/text_grey"/>
+                android:textColor="@color/text_grey"
+             />
 
 
 

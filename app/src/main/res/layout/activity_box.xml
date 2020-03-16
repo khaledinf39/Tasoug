@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.Activities.Box">
+    tools:context=".Views.Activities.Box"
+    android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -43,7 +44,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/header"
         >
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -82,18 +84,30 @@ app:layout_constraintTop_toTopOf="parent">
 
                         android:layout_marginRight="10dp"
                         app:layout_constraintTop_toBottomOf="@+id/name"
-                        android:text="20 ر.س"
-                        android:id="@+id/price"
+                        android:text="00 "
+                        android:id="@+id/total_elc"
                         android:fontFamily="@font/saudi"
                         android:textSize="14sp"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/text_green"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       app:layout_constraintRight_toLeftOf="@+id/total_elc"
 
+                        android:layout_marginRight="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/name"
+                        android:text=" ر.س"
+
+                        android:fontFamily="@font/saudi"
+                        android:textSize="14sp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/text_green"/>
                     <TextView
                         android:id="@+id/t3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/price"
+                        app:layout_constraintTop_toBottomOf="@+id/total_elc"
                         android:layout_marginTop="50dp"
                         android:layout_marginRight="10dp"
                         android:fontFamily="@font/saudi"
@@ -104,6 +118,7 @@ app:layout_constraintTop_toTopOf="parent">
                         tools:layout_editor_absoluteY="90dp" />
 
                     <EditText
+                        android:inputType="number"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/bk_edite_bay"
                         android:padding="10dp"
@@ -125,7 +140,7 @@ app:layout_constraintTop_toTopOf="parent">
                         android:layout_marginRight="10dp"
                         app:layout_constraintTop_toTopOf="parent"
                         android:text="@string/details"
-                        android:id="@+id/t2"
+                        android:id="@+id/go_payment"
                         android:fontFamily="@font/saudi"
                         android:textSize="16sp"
                         android:layout_marginTop="5dp"
@@ -169,13 +184,25 @@ app:layout_constraintTop_toTopOf="parent">
 
                         android:layout_marginRight="10dp"
                         app:layout_constraintTop_toBottomOf="@+id/name2"
-                        android:text="20 ر.س"
-                        android:id="@+id/price2"
+                        android:text="00"
+                        android:id="@+id/total"
                         android:fontFamily="@font/saudi"
                         android:textSize="14sp"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/text_white_blue"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintRight_toLeftOf="@+id/total"
 
+                        android:layout_marginRight="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/name2"
+                        android:text=" ر.س"
+
+                        android:fontFamily="@font/saudi"
+                        android:textSize="14sp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/text_white_blue"/>
 
                     <Button
                         android:layout_marginRight="10dp"
@@ -190,18 +217,64 @@ app:layout_constraintTop_toTopOf="parent">
                         android:text="@string/terment_today"
                         android:textColor="@color/text_white"
                         android:textSize="16sp"
-                        app:layout_constraintTop_toBottomOf="@+id/price2"
+                        app:layout_constraintTop_toBottomOf="@+id/total"
                         tools:layout_editor_absoluteX="253dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-            <androidx.recyclerview.widget.RecyclerView
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                app:layout_constraintTop_toBottomOf="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/card2"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/row_box"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:orientation="vertical">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progress"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+
+
+                    android:id="@+id/no_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="لا يوجد عناصر"
+                    android:visibility="gone"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                    android:id="@+id/RV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginEnd="17dp"
+                    android:layout_marginStart="17dp"
+                    tools:listitem="@layout/row_box"
+
+                    />
+                <TextView
+                    android:layout_marginTop="20dp"
+
+
+                    android:id="@+id/see_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="عرض المزيد"
+                    android:visibility="gone"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

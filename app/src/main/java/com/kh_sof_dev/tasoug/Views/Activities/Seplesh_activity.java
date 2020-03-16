@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 
 public class Seplesh_activity extends AppCompatActivity {
 
-    private static final long SPLASH_TIME = 20000;
+    private static final long SPLASH_TIME = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class Seplesh_activity extends AppCompatActivity {
                 //startActivity(new Intent(LogoAct.this,Intro.class));
 
 
-                if (!sp1.getBoolean("login", true)){
+                if (sp1.getString("id", "").isEmpty()){
                     /***********/
                     //openIntroPage
                     startActivity(new Intent(Seplesh_activity.this,Login_activity.class));
@@ -49,7 +49,7 @@ public class Seplesh_activity extends AppCompatActivity {
         }, SPLASH_TIME);
 
         TextView logo_tv=findViewById(R.id.logo_tv);
-        Animation myanim = AnimationUtils.loadAnimation(this,R.anim.logo_animation);
+        Animation myanim = AnimationUtils.loadAnimation(this,R.anim.bounce);
         logo_tv.startAnimation(myanim);
     }
 }

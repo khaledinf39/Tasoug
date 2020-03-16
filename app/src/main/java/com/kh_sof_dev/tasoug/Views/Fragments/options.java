@@ -11,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kh_sof_dev.tasoug.Model.Classes.Expense;
 import com.kh_sof_dev.tasoug.R;
 import com.kh_sof_dev.tasoug.Views.Activities.Bonod_expenses;
+import com.kh_sof_dev.tasoug.Views.Activities.Box;
 import com.kh_sof_dev.tasoug.Views.Activities.Expenses;
 import com.kh_sof_dev.tasoug.Views.Activities.Store_info;
 import com.kh_sof_dev.tasoug.Views.Activities.Term_and_conditions;
@@ -27,7 +29,7 @@ public class options extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
-private ConstraintLayout store_inf_btn,termNconditions_forns,termNconditions_client,bonod_expenses;
+private ConstraintLayout store_inf_btn,termNconditions_forns,termNconditions_client,bonod_expenses,expenses;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,12 +44,14 @@ private ConstraintLayout store_inf_btn,termNconditions_forns,termNconditions_cli
         termNconditions_forns=view.findViewById(R.id.termNconditions_forns);
         termNconditions_client=view.findViewById(R.id.termNconditions_client);
         bonod_expenses=view.findViewById(R.id.bonod_expenses);
+      expenses=view.findViewById(R.id.expenses);
 
         store_inf_btn.setOnClickListener(this);
         termNconditions_forns.setOnClickListener(this);
         termNconditions_client.setOnClickListener(this);
 
         bonod_expenses.setOnClickListener(this);
+        expenses.setOnClickListener(this);
 
     }
 
@@ -78,6 +82,11 @@ private ConstraintLayout store_inf_btn,termNconditions_forns,termNconditions_cli
             case R.id.bonod_expenses:
                 Intent bonod_expenses=new Intent(getActivity(), Bonod_expenses.class);
                 startActivity(bonod_expenses);
+                break;
+
+            case R.id.expenses:
+                Intent i=new Intent(getActivity(), Expenses.class);
+                startActivity(i);
                 break;
         }
     }

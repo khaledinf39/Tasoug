@@ -4,24 +4,79 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
-    private  String name,phone,password,email,ID,image;
+    private  String name,phone,password,email,ID,image,create_at,address;
     private  Double lat,lng;
 private  Boolean status;
-    public User(JSONObject jsonObject) throws JSONException {
-        if(jsonObject == null){
+private List<User> userList;
+    public User(JSONObject jsonObject_)  {
+        if(jsonObject_ == null){
             return;
         }
+try{
+    JSONArray jsonArray=jsonObject_.getJSONArray("users");
+    userList=new ArrayList<>();
+   for(int i=0;i<jsonArray.length(); i++){
+       User user=new User();
+       user. ID=jsonArray.getJSONObject(i).getString("_id");
 
-        name=jsonObject.getString("name");
-        phone=jsonObject.getString("phone");
-        password=jsonObject.getString("password");
-        email=jsonObject.getString("email");
-        image=jsonObject.getString("image");
-        lat=jsonObject.getDouble("lat");
-        lng=jsonObject.getDouble("lng");
-        status=jsonObject.getBoolean("status");
+       user. phone=jsonArray.getJSONObject(i).getString("phone");
+       user.password=jsonArray.getJSONObject(i).getString("password");
+       user.  lat=jsonArray.getJSONObject(i).getDouble("lat");
+       user.  lng=jsonArray.getJSONObject(i).getDouble("lng");
 
+       user. status=jsonArray.getJSONObject(i).getBoolean("status");
+       user. create_at=jsonArray.getJSONObject(i).getString("create_at");
+
+     try {
+         user. address=jsonArray.getJSONObject(i).getString("address");
+         user.name=jsonArray.getJSONObject(i).getString("name");
+
+         user. email=jsonArray.getJSONObject(i).getString("email");
+         user. image=jsonArray.getJSONObject(i).getString("image");
+     }catch (Exception e){
+         e.printStackTrace();
+     }
+
+
+
+       userList.add(user);
+   }
+}catch (Exception e){
+    e.printStackTrace();
+}
+
+    }
+
+    public User() {
+
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public String getCreate_at() {
+        return create_at;
+    }
+
+    public void setCreate_at(String create_at) {
+        this.create_at = create_at;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     public Boolean getStatus() {

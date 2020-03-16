@@ -38,24 +38,66 @@
         android:layout_height="1dp"
         app:layout_constraintTop_toBottomOf="@+id/header"
         android:background="@color/bk_grey"/>
-    <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@+id/header"
+    <LinearLayout
         android:layout_marginTop="3dp"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/RV"
-        tools:listitem="@layout/row_bonod"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        android:orientation="vertical">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+
+
+            android:id="@+id/no_items"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="لا يوجد عناصر"
+            android:visibility="gone"
+            android:fontFamily="@font/tajawal_medium"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/RV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginStart="17dp"
+            tools:listitem="@layout/row_bonod"
+
+            />
+        <TextView
+            android:layout_marginTop="20dp"
+
+
+            android:id="@+id/see_more"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="عرض المزيد"
+            android:visibility="gone"
+            android:fontFamily="@font/tajawal_medium"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fab_plase"
+        android:id="@+id/add_band"
         android:backgroundTint="@color/bk_white"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/fab_qr_code2"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
         android:src="@drawable/ic_plase"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
