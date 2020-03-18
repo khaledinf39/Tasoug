@@ -1,30 +1,39 @@
-package com.kh_sof_dev.tasoug.Views.Fragments;
+package com.kh_sof_dev.tasoug.Views.Fragments.Orders;
 
 
 import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Color;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.kh_sof_dev.tasoug.R;
 import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Cancel_request;
 import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Compte_request;
 import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Current_request;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,6 +82,61 @@ public class Order extends Fragment {
     private PendingIntent pendingIntent;
     private AlarmManager manager;
 
+    public interface onfilter{
+      void   getDate(String date);
+    }
+
+    public static  onfilter oncancel_listenner,oncomplet_listenner,oncurent_listenner;
+    Calendar calendar;
+    public DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            calendar= Calendar.getInstance();
+            calendar.set(Calendar.YEAR,selectedYear);
+            calendar.set(Calendar.DAY_OF_MONTH,selectedDay);
+            calendar.set(Calendar.MONTH,selectedMonth);
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+            view.setVisibility(view.isShown()
+                    ?View.GONE
+                    :View.VISIBLE);
+            String formatedDate = format.format(calendar.getTime());
+            switch (tabLayout.getSelectedTabPosition()){
+                case 0:
+                    oncurent_listenner.getDate(formatedDate);
+                    break;
+
+                case 1:
+                    oncomplet_listenner.getDate(formatedDate);
+                    break;
+
+                case 2:
+                    oncancel_listenner.getDate(formatedDate);
+                    break;
+
+            }
+
+
+
+
+
+        }
+    };
+
+
+    public void showThePickers() {
+
+        calendar = Calendar.getInstance();
+        DatePickerDialog datePickerDialog;
+        datePickerDialog = new DatePickerDialog(getContext(),
+                R.style.TimePickerTheme,datePickerListener,
+                calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
+    TabLayout tabLayout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,16 +149,43 @@ public class Order extends Fragment {
         Compte_request.type="all";
 
         /****************************definitions*****************************/
+         FloatingActionButton filter;
 
+        filter=view.findViewById(R.id.fab);
+filter.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+showThePickers();
+    }
+});
+        oncancel_listenner=new onfilter() {
+            @Override
+            public void getDate(String date) {
 
+            }
+        };
+        oncomplet_listenner=new onfilter() {
+            @Override
+            public void getDate(String date) {
+
+            }
+        };
+        oncurent_listenner=new onfilter() {
+            @Override
+            public void getDate(String date) {
+
+            }
+        };
 
 
         fragmentManager = getActivity().getSupportFragmentManager();
         mViewPager = (ViewPager) view.findViewById(R.id.viewpage);
-        mViewPager.setAdapter(new MyPagerAdapter(getActivity().getSupportFragmentManager()));
+//        mViewPager.setAdapter(new MyPagerAdapter(getActivity().getSupportFragmentManager()));
 
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab);
-//        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#56ce8b"));
+        mViewPager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
+
+         tabLayout = (TabLayout) view.findViewById(R.id.tab);
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#56ce8b"));
         tabLayout.setSelectedTabIndicatorHeight((int) (4 * getResources().getDisplayMetrics().density));
         tabLayout.setTabTextColors(Color.parseColor("#ffffff"), Color.parseColor("#ffffff"));
 
@@ -107,7 +198,7 @@ return view;
 
     }
     /* PagerAdapter for supplying the ViewPager with the pages (fragments) to display. */
-    public class MyPagerAdapter extends FragmentPagerAdapter {
+    public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -115,6 +206,7 @@ return view;
 
         @Override
         public Fragment getItem(int position) {
+
             return PAGES[position];
         }
 
@@ -129,6 +221,5 @@ return view;
         }
 
     }
-
 
 }

@@ -28,6 +28,13 @@ public class Users {
         void onSuccess(User user);
         void  onField(String msg);
     }
+
+    public interface Get_supplier{
+        void onstart();
+        void onSuccess(Supplier user);
+        void  onField(String msg);
+    }
+
     RequestQueue queue=null;
     public void Get_All_clients(Context mcontext, final Get_users listener){
         listener.onstart();
@@ -71,9 +78,9 @@ public class Users {
         queue.add(getRequest);
         queue.getCache().clear();
     }
-    public void Get_All_supplier(Context mcontext, final Get_users listener){
+    public void Get_All_supplier(Context mcontext, final Get_supplier listener){
         listener.onstart();
-        String url= Store_info.api+"supplier/bystore/"+Store_info.storeID;
+        String url= Store_info.api+"suppliers/bystore/"+Store_info.storeID;
         RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
 
         if (queue==null){
@@ -89,7 +96,7 @@ public class Users {
                         // display response
                         Log.d("Response", response.toString());
                         try {
-                            listener.onSuccess(new User(response.getJSONObject("user")));
+                            listener.onSuccess(new Supplier(response));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -100,7 +107,7 @@ public class Users {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.getMessage());
+//                        Log.d("Error.Response", error.getMessage());
                         listener.onField(error.getMessage());
                     }
                 }
@@ -109,7 +116,7 @@ public class Users {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String>  Headers = new HashMap<String, String>();
                 Headers.put("token",Store_info.token);
-                return super.getHeaders();
+                return Headers;
             }
         };
 
@@ -176,12 +183,8 @@ public class Users {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-                        try {
-                            Log.d("Response",jsonObject.toString());
-                            listener.onSuccess(new User(jsonObject.getJSONObject("user")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        Log.d("Response",jsonObject.toString());
+                        listener.onSuccess(new User(jsonObject));
                     }
                 }, new Response.ErrorListener (){
 

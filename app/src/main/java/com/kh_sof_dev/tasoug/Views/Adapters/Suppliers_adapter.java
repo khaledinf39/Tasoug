@@ -41,7 +41,7 @@ public class Suppliers_adapter extends RecyclerView.Adapter<Suppliers_adapter.Vi
     private List<Supplier> mItems = new ArrayList<>();
     private Context mContext;
     private View mview;
-    interface Selected_item{
+    public interface Selected_item{
         void Onselcted(Supplier supplier);
     }
     Selected_item listenner;
@@ -50,6 +50,7 @@ public class Suppliers_adapter extends RecyclerView.Adapter<Suppliers_adapter.Vi
         mItems = names;
         mContext = context;
         this.listenner=listenner;
+        users=new Users();
 
     }
 
@@ -130,7 +131,8 @@ public class Suppliers_adapter extends RecyclerView.Adapter<Suppliers_adapter.Vi
             mContext.startActivity(intent);
 
 
-        } else {
+        }
+        else {
             EasyPermissions.requestPermissions(this, "Access for Call phone",
                     1000, callPermissions);
         }

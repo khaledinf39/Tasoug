@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kh_sof_dev.tasoug.Controule.Routes.Mostalamat;
 import com.kh_sof_dev.tasoug.Controule.Routes.Orders;
 import com.kh_sof_dev.tasoug.Model.Classes.Order;
 import com.kh_sof_dev.tasoug.Model.Classes.ProductOForder;
@@ -25,7 +26,7 @@ import java.util.List;
 public class Order_details extends AppCompatActivity implements View.OnClickListener {
 
     public static Order order=null;
-
+public  static String type="order";
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,10 +99,19 @@ default:
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.contine:
-                change_order(2);
+               if (type.equals("order")){
+                   change_order(2);
+               }else {
+                   change_mosta(2);
+               }
+
                 break;
                 case R.id.cancel:
-                    change_order(3);
+                    if (type.equals("order")){
+                        change_order(3);
+                    }else {
+                        change_mosta(3);
+                    }
                 break;
             case R.id.back_btn:
                 finish();
@@ -117,6 +127,27 @@ default:
     private void change_order(final int status) {
         Orders orders=new Orders();
         orders.Put_Order_status(this, order.get_id(), status, new Orders.Get_Order() {
+            @Override
+            public void onstart() {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onSuccess(Order order) {
+                cancel.setVisibility(View.GONE);
+                contine.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onField(String msg) {
+
+            }
+        });
+    }
+    private void change_mosta(final int status) {
+        Mostalamat orders=new Mostalamat();
+        orders.Put_Order_status(this, order.get_id(), status, new Mostalamat.Get_Order() {
             @Override
             public void onstart() {
 

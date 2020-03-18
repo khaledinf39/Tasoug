@@ -15,6 +15,8 @@ import com.kh_sof_dev.tasoug.R;
 import com.kh_sof_dev.tasoug.Views.Activities.Box;
 import com.kh_sof_dev.tasoug.Views.Activities.Expenses;
 import com.kh_sof_dev.tasoug.Views.Activities.MainActivity;
+import com.kh_sof_dev.tasoug.Views.Fragments.Mostalamat.Mostalamat;
+import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Order;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -119,7 +121,7 @@ private Button btn_montagat,btn_mouch,btn_client,btn_forniseur,btn_soundok,btn_m
                break;
 
            case R.id.btn_mostalamat:
-               mostalamat mostalamat=new mostalamat();
+               Mostalamat mostalamat=new Mostalamat();
                switchFGM(mostalamat);
                MainActivity.titel.setText("المستلمات");
 

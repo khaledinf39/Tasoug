@@ -30,7 +30,7 @@ public class clients extends Fragment {
         // Required empty public constructor
     }
 
-private RecyclerView RV;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +42,7 @@ private RecyclerView RV;
         return view;
     }
 
+    private RecyclerView RV;
     private ProgressBar progressBar;
     private TextView noitem;
     private List<User> userList;

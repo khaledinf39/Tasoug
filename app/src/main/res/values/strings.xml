@@ -107,4 +107,10 @@
     <string name="mostalamat">مستلمات</string>
     <string name="accepte">قبول</string>
     <string name="del">رفض</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="Execus">عذرا ...!</string>
+    <string name="open_gps">قم بفتح ال GPS</string>
+    <string name="go_to_sitting">الذهاب الى الاعدادات</string>
+    <string name="empty">تصفير الحساب</string>
+    <string name="given">المدفوع</string>
 </resources>

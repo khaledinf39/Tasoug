@@ -1,33 +1,24 @@
 package com.kh_sof_dev.tasoug.Views.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-import android.graphics.Path;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.kh_sof_dev.tasoug.Controule.Info.Store_info;
-import com.kh_sof_dev.tasoug.Controule.Routes.Stores;
 import com.kh_sof_dev.tasoug.R;
-import com.kh_sof_dev.tasoug.Views.Fragments.Order;
+import com.kh_sof_dev.tasoug.Views.Fragments.Mostalamat.Mostalamat;
+import com.kh_sof_dev.tasoug.Views.Fragments.Orders.Order;
 import com.kh_sof_dev.tasoug.Views.Fragments.clients;
 import com.kh_sof_dev.tasoug.Views.Fragments.forniseure;
 import com.kh_sof_dev.tasoug.Views.Fragments.mabiat;
@@ -35,8 +26,6 @@ import com.kh_sof_dev.tasoug.Views.Fragments.main;
 import com.kh_sof_dev.tasoug.Views.Fragments.mochtarawat;
 import com.kh_sof_dev.tasoug.Views.Fragments.mostalamat;
 import com.kh_sof_dev.tasoug.Views.Fragments.options;
-import com.yarolegovich.slidingrootnav.SlideGravity;
-import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -166,7 +155,8 @@ initialize();
                 break;
 
             case R.id.btn_mostalamat:
-                switchFGM(new mostalamat());
+
+                switchFGM(new Mostalamat());
                 navDrawer.closeDrawers();
                 MainActivity.titel.setText("المستلمات");
 

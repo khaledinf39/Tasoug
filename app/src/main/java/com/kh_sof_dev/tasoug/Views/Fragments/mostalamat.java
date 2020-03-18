@@ -51,28 +51,29 @@ public class mostalamat extends Fragment {
 
     private void Loading(int status) {
         Mostalamat mostalamat=new Mostalamat();
-        mostalamat.Get_All_orderBystore(getContext(), new Mostalamat.Get_Most() {
-            @Override
-            public void onstart() {
+//        mostalamat.Get_All_orderBystore(getContext(), new Mostalamat.Get_Most() {
+//            @Override
+//            public void onstart() {
+//
+//            }
+//
+//            @Override
+//            public void onSuccess(ProductOFmost productOFmost) {
+//productOFmostList.clear();
+//productOFmostList.addAll(productOFmost.getProductOFmostList());
+//progressBar.setVisibility(View.GONE);
+//if (productOFmostList.size()==0){
+//    noitem.setVisibility(View.VISIBLE);
+//}
+//adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onField(String msg) {
+//
+//            }
+//        });
 
-            }
-
-            @Override
-            public void onSuccess(ProductOFmost productOFmost) {
-productOFmostList.clear();
-productOFmostList.addAll(productOFmost.getProductOFmostList());
-progressBar.setVisibility(View.GONE);
-if (productOFmostList.size()==0){
-    noitem.setVisibility(View.VISIBLE);
-}
-adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onField(String msg) {
-
-            }
-        });
     }
 
     private TextView order_act,order_des,tot_act,tot_des,total;

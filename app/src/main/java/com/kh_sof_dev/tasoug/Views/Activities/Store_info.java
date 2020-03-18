@@ -1,9 +1,19 @@
 package com.kh_sof_dev.tasoug.Views.Activities;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +21,17 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.kh_sof_dev.tasoug.Controule.Routes.Stores;
+import com.kh_sof_dev.tasoug.Controule.Routes.upload_img.upload;
+import com.kh_sof_dev.tasoug.Model.Classes.ResizePickedImage;
 import com.kh_sof_dev.tasoug.Model.Classes.Store;
 import com.kh_sof_dev.tasoug.R;
+import com.kh_sof_dev.tasoug.Views.Adapters.Images_adapter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import pub.devrel.easypermissions.EasyPermissions;
 
 public class Store_info extends AppCompatActivity implements View.OnClickListener {
 
@@ -61,12 +77,15 @@ public class Store_info extends AppCompatActivity implements View.OnClickListene
 
     }
 
+    private static  int mapsPort=1,imageport=2;
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.store_location:
+                startActivityForResult(new Intent(Store_info.this,MapsActivity.class),mapsPort);
                 break;
             case R.id.store_logo:
+                imageBrowse();
                 break;
             case R.id.save_btn:
                 save_fun();
@@ -91,8 +110,22 @@ public  static  Double lat=0.0,lng=0.0;
             return;
         }
         if (lat==0.0 || lng==0.0){
-//            return;
+            location_btn.setError(location_btn.getText());
+            return;
         }
+if (bitmap==null){
+    logo_btn.setError(logo_btn.getText());
+    return;
+}else {
+    upload upload=new upload();
+    upload.uploadImage(this, bitmap, new upload.Uploading() {
+        @Override
+        public void onstart() {
+
+        }
+
+        @Override
+        public void onSuccess(String url) {
 
             Store store=new Store();
             store.setUser_name(user_name.getText().toString());
@@ -104,29 +137,39 @@ public  static  Double lat=0.0,lng=0.0;
             store.setAddress(store_city.getText().toString());
             store.setLat(lat);
             store.setLng(lng);
-        final ProgressDialog dialog=new ProgressDialog(this);
-        dialog.setMessage("رفع الى قاعدة البيانات...");
-        dialog.show();
-        Stores stores=new Stores();
-        stores.Put_store(this, store, new Stores.Get_Stores() {
-            @Override
-            public void onstart() {
+            store.setImage(url);
+            final ProgressDialog dialog=new ProgressDialog(Store_info.this);
+            dialog.setMessage("رفع الى قاعدة البيانات...");
+            dialog.show();
+            Stores stores=new Stores();
+            stores.Put_store(Store_info.this, store, new Stores.Get_Stores() {
+                @Override
+                public void onstart() {
 
-            }
+                }
 
-            @Override
-            public void onSuccess(Store store) {
-                new com.kh_sof_dev.tasoug.Controule.Info.Store_info(store,getApplicationContext());
-                Toast.makeText(getApplicationContext(),"تم رفع معلومات المحل",Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-                finish();
-            }
+                @Override
+                public void onSuccess(Store store) {
+                    new com.kh_sof_dev.tasoug.Controule.Info.Store_info(store,getApplicationContext());
+                    Toast.makeText(getApplicationContext(),"تم رفع معلومات المحل",Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    finish();
+                }
 
-            @Override
-            public void onField(String msg) {
+                @Override
+                public void onField(String msg) {
 
-            }
-        });
+                }
+            });
+        }
+
+        @Override
+        public void onField(String msg) {
+
+        }
+    });
+}
+
     }
 
     private boolean Verify(List<EditText> editTextList) {
@@ -138,5 +181,67 @@ public  static  Double lat=0.0,lng=0.0;
             }
         }
         return true;
+    }
+
+
+    ///images
+    private String[] galleryPermissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+    private void imageBrowse() {
+
+        if (EasyPermissions.hasPermissions(getApplicationContext(), galleryPermissions)) {
+            Intent pickerPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+            startActivityForResult(pickerPhotoIntent, imageport);
+
+
+        } else {
+            EasyPermissions.requestPermissions(this, "Access for storage",
+                    1000, galleryPermissions);
+
+            Intent pickerPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+            startActivityForResult(pickerPhotoIntent, imageport);
+        }
+
+
+    }
+
+
+    Bitmap bitmap=null;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==mapsPort && resultCode== Activity.RESULT_OK){
+            lat=data.getDoubleExtra("lat",0.0);
+            lng=data.getDoubleExtra("lng",0.0);
+            if (lat==0.0 || lng ==0.0){
+                location_btn.setBackground(getDrawable(R.drawable.bk_btn_save));
+                location_btn.setText("تم أختيار المكان من الخريطة ");
+            }
+        }
+
+        if (requestCode==imageport && resultCode== Activity.RESULT_OK){
+
+            Uri returnUri = data.getData();
+            ResizePickedImage resizePickedImage = new ResizePickedImage();
+            String realePath = resizePickedImage.getRealPathFromURI(returnUri, this);
+            System.out.println(realePath);
+            String compresedImagePath;
+            Bitmap bitmapImage = null;
+            try {
+                Uri contentURI = data.getData();
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), contentURI);
+               if (bitmap!=null){
+                   logo_btn.setBackground(getDrawable(R.drawable.bk_btn_save));
+                   logo_btn.setText("تم إختيار شعار المحل ");
+               }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

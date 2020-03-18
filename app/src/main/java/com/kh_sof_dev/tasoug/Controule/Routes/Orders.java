@@ -101,7 +101,7 @@ public class Orders {
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.getMessage());
+//                        Log.d("Error.Response", error.getMessage());
                         listener.onField(error.getMessage());
                     }
                 }

@@ -37,7 +37,7 @@ public class Mostalamat {
     RequestQueue queue=null;
     public void Get_All_order(Context mcontext,int status, final Get_Order listener){
         listener.onstart();
-        String url= Store_info.api+"mostalamats/"+status;
+        String url= Store_info.api+"mostalamats/"+status+"/1";
         RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
 
         if (queue==null){
@@ -123,9 +123,9 @@ public class Mostalamat {
         queue.add(getRequest);
         queue.getCache().clear();
     }
-    public void Get_All_orderBystore(Context mcontext, final Get_Most listener){
+    public void Get_All_orderBystore(Context mcontext,int status, final Get_Order listener){
         listener.onstart();
-        String url= Store_info.api+"mostalamats/bystore/"+Store_info.storeID+"/1";
+        String url= Store_info.api+"mostalamats/bystore/"+Store_info.storeID+"/"+status+"/1";
         RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
 
         if (queue==null){
@@ -140,7 +140,7 @@ public class Mostalamat {
                     public void onResponse(JSONObject response) {
                         // display response
                         Log.d("Response", response.toString());
-                        listener.onSuccess(new ProductOFmost(response));
+                        listener.onSuccess(new Order(response));
 
                     }
                 },
@@ -167,7 +167,7 @@ public class Mostalamat {
     }
     public void Get_All_orderByuser(Context mcontext,String userID,int status, final Get_Order listener){
         listener.onstart();
-        String url= Store_info.api+"mostalamats/by_user_And_status/"+userID+"/"+status;
+        String url= Store_info.api+"mostalamats/by_user_And_status/"+userID+"/"+status+"/1";
         RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
 
         if (queue==null){
@@ -258,7 +258,7 @@ JSONObject order_=order.toJsonObject();
     }
     public void Put_Order_status(final Context mcontext,String orderID, final int status , final Get_Order listener) {
         listener.onstart();
-        String url= Store_info.api+"mostalamats/"+orderID+"/"+status;
+        String url= Store_info.api+"mostalamats/"+orderID+"/"+status+"/1";
         RequestQueue queue = Volley.newRequestQueue(mcontext);  // this = context
 
         if (queue==null){
